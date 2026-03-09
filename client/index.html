@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delay Tool - Shipment Delay Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📦 Delay Tool</h1>
+            <p>Shipment Delay Analyzer & Improvement Suggester</p>
+        </header>
+
+        <main>
+            <section class="input-section">
+                <h2>Analyze Shipment Delay</h2>
+                <form id="delayForm">
+                    <div class="form-group">
+                        <label for="logText">Delay Log:</label>
+                        <textarea 
+                            id="logText" 
+                            name="logText" 
+                            rows="6" 
+                            placeholder="Enter the shipment delay log here..."
+                            required
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Analyze Delay</button>
+                </form>
+            </section>
+
+            <section id="resultSection" class="result-section" style="display: none;">
+                <h2>Analysis Results</h2>
+                
+                <div class="result-card">
+                    <h3>📧 Customer Message</h3>
+                    <p id="customerMessage" class="result-text"></p>
+                </div>
+
+                <div class="result-card">
+                    <h3>💡 Improvement Suggestion</h3>
+                    <p id="improvementSuggestion" class="result-text"></p>
+                </div>
+
+                <button type="button" class="btn btn-secondary" onclick="resetForm()">Analyze Another Delay</button>
+            </section>
+
+            <section id="loadingSection" class="loading-section" style="display: none;">
+                <div class="spinner"></div>
+                <p>Analyzing delay...</p>
+            </section>
+
+            <section id="errorSection" class="error-section" style="display: none;">
+                <h3>⚠️ Error</h3>
+                <p id="errorMessage"></p>
+                <button type="button" class="btn btn-secondary" onclick="resetForm()">Try Again</button>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by Gemini AI • Backend: http://localhost:5000</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

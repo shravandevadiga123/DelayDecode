@@ -1,0 +1,501 @@
+/* Analytics Dashboard Styles */
+.analytics-dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 40px 20px;
+}
+
+.dashboard-header {
+  max-width: 1400px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  color: #145DBE;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.dashboard-header p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 0;
+}
+
+/* Operational Insights Section */
+.operational-insights {
+  max-width: 1400px;
+  margin: 0 auto 40px;
+}
+
+.operational-insights h2 {
+  color: #145DBE;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.insight-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(20, 93, 190, 0.1);
+  border-left: 5px solid #145DBE;
+  transition: all 0.3s ease;
+}
+
+.insight-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(20, 93, 190, 0.15);
+}
+
+.insight-label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.insight-value {
+  font-size: 2.2rem;
+  color: #145DBE;
+  font-weight: 700;
+}
+
+.insight-value-text {
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+/* Current Shipment Section */
+.current-shipment {
+  max-width: 1400px;
+  margin: 0 auto 40px;
+}
+
+.current-shipment h2 {
+  color: #145DBE;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.metric-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(20, 93, 190, 0.1);
+  text-align: center;
+  border-top: 3px solid #145DBE;
+}
+
+.metric-label {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-value {
+  font-size: 1.8rem;
+  color: #145DBE;
+  font-weight: 700;
+}
+
+.metric-value-text {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.metric-factors {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.factor-badge {
+  background: #145DBE;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* Analytics Charts Section */
+.analytics-charts {
+  max-width: 1400px;
+  margin: 0 auto 40px;
+}
+
+.analytics-charts h2 {
+  color: #145DBE;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 25px;
+}
+
+.chart-container {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(20, 93, 190, 0.1);
+}
+
+.chart-container h3 {
+  color: #145DBE;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Route Flow Section */
+.route-flow {
+  max-width: 1400px;
+  margin: 0 auto 40px;
+}
+
+.route-flow h2 {
+  color: #145DBE;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.route-flow-container {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(20, 93, 190, 0.1);
+}
+
+.route-flows-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.route-flow-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.route-flow-label {
+  min-width: 150px;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.route-flow-bar {
+  flex: 1;
+  height: 30px;
+  background: #f0f0f0;
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.route-flow-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #145DBE, #0d4a9e);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 10px;
+  transition: all 0.3s ease;
+}
+
+.route-flow-fill:hover {
+  background: linear-gradient(90deg, #0d4a9e, #145DBE);
+}
+
+.route-flow-count {
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* Recent Logs Section */
+.recent-logs {
+  max-width: 1400px;
+  margin: 0 auto 40px;
+}
+
+.recent-logs h2 {
+  color: #145DBE;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  font-weight: 600;
+}
+
+.logs-table {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(20, 93, 190, 0.1);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f8f9fa;
+  border-bottom: 2px solid #145DBE;
+}
+
+th {
+  padding: 15px;
+  text-align: left;
+  color: #145DBE;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+}
+
+tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.reasons-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.reason-tag {
+  background: #e7f3ff;
+  color: #145DBE;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid #145DBE;
+}
+
+/* Loading State */
+.analytics-loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #145DBE;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.analytics-loading p {
+  color: #145DBE;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Error State */
+.analytics-error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  text-align: center;
+}
+
+.analytics-error p {
+  color: #dc3545;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+/* Empty State */
+.analytics-empty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.analytics-empty p {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  color: #666;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(20, 93, 190, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .insights-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .analytics-dashboard {
+    padding: 20px 15px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-header p {
+    font-size: 1rem;
+  }
+
+  .operational-insights h2,
+  .current-shipment h2,
+  .analytics-charts h2,
+  .route-flow h2,
+  .recent-logs h2 {
+    font-size: 1.4rem;
+  }
+
+  .insights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .insight-card,
+  .chart-container,
+  .route-flow-container,
+  .logs-table {
+    padding: 15px;
+  }
+
+  .insight-value {
+    font-size: 1.8rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  th, td {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .analytics-dashboard {
+    padding: 15px 10px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.3rem;
+  }
+
+  .operational-insights h2,
+  .current-shipment h2,
+  .analytics-charts h2,
+  .route-flow h2,
+  .recent-logs h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+
+  .insights-grid,
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .insight-card {
+    padding: 15px;
+  }
+
+  .insight-value {
+    font-size: 1.5rem;
+  }
+
+  .metric-card {
+    padding: 15px;
+  }
+
+  .chart-container {
+    padding: 15px;
+  }
+
+  .chart-container h3 {
+    font-size: 1rem;
+  }
+
+  table {
+    font-size: 0.8rem;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  .reason-tag {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+  }
+}

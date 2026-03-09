@@ -1,0 +1,22 @@
+{
+  "name": "delay-tool-server",
+  "version": "1.0.0",
+  "description": "Node.js + Express backend for Delay Tool",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.1.3",
+    "cors": "^2.8.5",
+    "csv-parser": "^3.0.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "openai": "^6.25.0"
+  }
+}

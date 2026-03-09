@@ -1,0 +1,380 @@
+/* Analyze Page Styles */
+.analyzer-main {
+  min-height: calc(100vh - 80px);
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 40px 20px;
+}
+
+/* Input Section */
+.input-section {
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.section-container {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(20, 93, 190, 0.15);
+}
+
+.input-section h2 {
+  color: #145DBE;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.generated-log-info {
+  background: #e7f3ff;
+  border-left: 4px solid #145DBE;
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin-bottom: 25px;
+}
+
+.info-text {
+  color: #145DBE;
+  margin: 0;
+  font-weight: 500;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.form-group textarea {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Courier New', monospace;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-group textarea:focus {
+  outline: none;
+  border-color: #145DBE;
+  box-shadow: 0 0 0 3px rgba(20, 93, 190, 0.1);
+}
+
+/* Button Styles */
+.btn {
+  padding: 12px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary {
+  background-color: #145DBE;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0d4a9e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(20, 93, 190, 0.3);
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(108, 117, 125, 0.3);
+}
+
+/* Loading Section */
+.loading-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.loading-container {
+  text-align: center;
+  background: white;
+  padding: 60px 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(20, 93, 190, 0.15);
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #145DBE;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-container p {
+  color: #145DBE;
+  font-size: 1.1rem;
+  margin: 0;
+}
+
+/* Result Section */
+.result-section {
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.result-section h2 {
+  color: #145DBE;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+
+.result-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 32px rgba(20, 93, 190, 0.15);
+  border-left: 5px solid #145DBE;
+}
+
+.card-header {
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.card-header h3 {
+  color: #145DBE;
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+/* Customer Card */
+.customer-card {
+  border-left-color: #28a745;
+}
+
+.customer-message-content {
+  line-height: 1.8;
+}
+
+.message-intro,
+.message-body,
+.message-closing {
+  color: #555;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.message-intro {
+  font-weight: 600;
+  color: #145DBE;
+}
+
+.message-closing {
+  font-style: italic;
+  color: #777;
+}
+
+/* Improvement Card */
+.improvement-card {
+  border-left-color: #ffc107;
+}
+
+.improvement-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.improvement-section h4 {
+  color: #145DBE;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.root-cause-text,
+.impact-text {
+  color: #555;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.actionable-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.actionable-steps li {
+  color: #555;
+  padding: 10px 0;
+  padding-left: 25px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.actionable-steps li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #28a745;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Bold text styling */
+strong {
+  color: #145DBE;
+  font-weight: 700;
+  background-color: rgba(20, 93, 190, 0.08);
+  padding: 2px 6px;
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+strong:hover {
+  background-color: rgba(20, 93, 190, 0.15);
+  box-shadow: 0 0 0 2px rgba(20, 93, 190, 0.1);
+}
+
+/* Error Section */
+.error-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.error-container {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 8px 32px rgba(220, 53, 69, 0.15);
+  text-align: center;
+  border-left: 5px solid #dc3545;
+}
+
+.error-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.error-container h3 {
+  color: #dc3545;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+#errorMessage {
+  color: #666;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .analyzer-main {
+    padding: 25px 15px;
+  }
+
+  .section-container {
+    padding: 25px;
+  }
+
+  .input-section h2,
+  .result-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .result-card {
+    padding: 20px;
+  }
+
+  .card-header h3 {
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .analyzer-main {
+    padding: 15px 10px;
+  }
+
+  .section-container {
+    padding: 20px;
+  }
+
+  .input-section h2,
+  .result-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .form-group textarea {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+
+  .result-card {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+
+  .message-intro,
+  .message-body,
+  .message-closing {
+    font-size: 0.95rem;
+  }
+
+  .actionable-steps li {
+    font-size: 0.95rem;
+  }
+}

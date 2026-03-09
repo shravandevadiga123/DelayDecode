@@ -1,0 +1,89 @@
+/* Navbar Component Styles - Matches Landing Page Color Scheme */
+.navbar-container {
+  background-color: #145DBE;
+  color: white;
+  padding: 0;
+  box-shadow: 0 4px 12px rgba(20, 93, 190, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.navbar-logo {
+  height: 25px;
+  width: auto;
+  display: block;
+  margin-left: -47px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.025);
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-bottom: 2px solid white;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-content {
+    padding: 12px 20px;
+  }
+
+  .navbar-logo {
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-content {
+    padding: 10px 16px;
+  }
+
+  .navbar-logo {
+    height: 35px;
+  }
+}

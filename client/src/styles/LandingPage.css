@@ -1,0 +1,156 @@
+/* Landing Page Styles - Split 70:30 Layout */
+
+.landing-page-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+}
+
+/* ============ LEFT SECTION (65%) - CONTENT ============ */
+.landing-left {
+  flex: 0 0 65%;
+  background-color: #145DBE;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 3rem;
+}
+
+.content-wrapper {
+  max-width: 550px;
+  width: 100%;
+  margin-left: 3rem;
+}
+
+.main-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.description {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0 0 2.5rem 0;
+  line-height: 1.7;
+}
+
+.get-started-btn {
+  background-color: #5094D4;
+  color: #ffffff;
+  border: none;
+  padding: 0.9rem 2.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 140, 66, 0.3);
+}
+
+.get-started-btn:hover {
+  background-color: #14284B;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 140, 66, 0.4);
+}
+
+.get-started-btn:active {
+  transform: translateY(0);
+}
+
+/* ============ RIGHT SECTION (35%) - LOGO PLACEHOLDER ============ */
+.landing-right {
+  flex: 0 0 35%;
+  background-color: #E8EFF5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.logo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #E8EFF5;
+  border-radius: 0.5rem;
+}
+
+.logo-placeholder img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  margin-left: 5rem;
+}
+
+/* ============ RESPONSIVE DESIGN ============ */
+@media (max-width: 1024px) {
+  .main-title {
+    font-size: 2.8rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+
+  .content-wrapper {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .landing-page-container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .landing-left,
+  .landing-right {
+    flex: 0 0 auto;
+    width: 100%;
+    min-height: 50vh;
+    padding: 2rem;
+  }
+
+  .main-title {
+    font-size: 2.2rem;
+  }
+
+  .description {
+    font-size: 0.95rem;
+  }
+
+  .get-started-btn {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .landing-left,
+  .landing-right {
+    min-height: 50vh;
+    padding: 1.5rem;
+  }
+
+  .main-title {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: 0.85rem;
+  }
+
+  .get-started-btn {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.9rem;
+  }
+}
