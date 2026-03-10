@@ -65,13 +65,13 @@ function extractRoute(record) {
 /**
  * Determines delivery zone based on hub ID
  * @param {String} hubId - Hub identifier
- * @returns {String} Zone type (Metro/Non-Metro)
+ * @returns {String} Zone type (Metropolitan/Non-Metropolitan)
  */
 function determineDeliveryZone(hubId) {
   // Metro hubs: 100-300, Non-Metro: 300+
   const hubNum = parseInt(hubId, 10);
-  if (isNaN(hubNum)) return 'Non-Metro';
-  return hubNum < 300 ? 'Metro' : 'Non-Metro';
+  if (isNaN(hubNum)) return 'Non-Metropolitan';
+  return hubNum < 300 ? 'Metropolitan' : 'Non-Metropolitan';
 }
 
 /**
@@ -147,7 +147,7 @@ function detectDelayReasons(record, delayDuration, context) {
   }
   
   // Signal 4: Non-metro delivery zone
-  if (context.deliveryZone === 'Non-Metro') {
+  if (context.deliveryZone === 'Non-Metropolitan') {
     scores['Remote Delivery Zone'] = 1;
   }
   

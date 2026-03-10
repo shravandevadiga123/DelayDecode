@@ -499,3 +499,91 @@ tbody tr:hover {
     padding: 3px 8px;
   }
 }
+
+/* ============ DARK MODE STYLES ============ */
+.dark-mode .analytics-dashboard {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a3a4a 100%);
+}
+
+.dark-mode .dashboard-header {
+  color: #e0e0e0;
+}
+
+.dark-mode .dashboard-header h1 {
+  color: #4a9eff;
+}
+
+.dark-mode .operational-insights,
+.dark-mode .current-shipment,
+.dark-mode .analytics-charts,
+.dark-mode .route-flow,
+.dark-mode .recent-logs {
+  color: #e0e0e0;
+}
+
+.dark-mode .operational-insights h2,
+.dark-mode .current-shipment h2,
+.dark-mode .analytics-charts h2,
+.dark-mode .route-flow h2,
+.dark-mode .recent-logs h2 {
+  color: #4a9eff;
+}
+
+.dark-mode .insight-card,
+.dark-mode .metric-card {
+  background: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border-color: #333;
+}
+
+.dark-mode .insight-card:hover,
+.dark-mode .metric-card:hover {
+  box-shadow: 0 6px 16px rgba(74, 158, 255, 0.15);
+}
+
+.dark-mode .insight-label,
+.dark-mode .metric-label {
+  color: #b0b0b0;
+}
+
+.dark-mode .insight-value,
+.dark-mode .metric-value {
+  color: #4a9eff;
+}
+
+.dark-mode .chart-container {
+  background: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .chart-container h3 {
+  color: #4a9eff;
+}
+
+.dark-mode .chart-container canvas {
+  filter: invert(0.9) hue-rotate(180deg);
+}
+
+.dark-mode table {
+  background: #1e1e1e;
+  color: #e0e0e0;
+}
+
+.dark-mode th {
+  background: #2a2a2a;
+  color: #4a9eff;
+  border-color: #444;
+}
+
+.dark-mode td {
+  border-color: #333;
+}
+
+.dark-mode tr:hover {
+  background: #2a2a2a;
+}
+
+.dark-mode .reason-tag {
+  background: #2e4a78;
+  color: #4a9eff;
+}

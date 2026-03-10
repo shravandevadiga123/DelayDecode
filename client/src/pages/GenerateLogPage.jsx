@@ -62,7 +62,7 @@ function GenerateLogPage({ onNavigateToAnalyze }) {
         {!generatedLog && !loading && !error && (
           <section className="generate-section">
             <div className="generate-card">
-              <div className="generate-icon">📋</div>
+              <div className="generate-icon"></div>
               <h2>Ready to Generate?</h2>
               <p>Click the button below to generate a random delayed shipment log from our logistics dataset.</p>
               <button 
@@ -132,7 +132,7 @@ function GenerateLogPage({ onNavigateToAnalyze }) {
         {error && !loading && (
           <section className="error-section">
             <div className="error-container">
-              <div className="error-icon">⚠️</div>
+              <div className="error-icon"></div>
               <h3>Error</h3>
               <p>{error}</p>
               <button

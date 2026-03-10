@@ -15,6 +15,18 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [generatedLog, setGeneratedLog] = useState(null);
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const savedTheme = localStorage.getItem('theme');
+    return savedTheme === 'dark';
+  });
+
+  const toggleTheme = () => {
+    setIsDarkMode(prev => {
+      const newMode = !prev;
+      localStorage.setItem('theme', newMode ? 'dark' : 'light');
+      return newMode;
+    });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -90,21 +102,21 @@ function App() {
   };
 
   return (
-    <>
+    <div className={isDarkMode ? 'app dark-mode' : 'app'}>
       {currentPage === 'landing' && (
-        <LandingPage onGetStarted={goToAnalyzer} />
+        <LandingPage onGetStarted={goToGenerateLog} />
       )}
 
       {currentPage === 'generateLog' && (
         <div className="generate-log-page">
-          <Navbar onBackClick={goToLanding} onGenerateLogClick={goToGenerateLog} onAnalyticsClick={goToAnalytics} currentPage="generateLog" />
+          <Navbar onBackClick={goToLanding} onGenerateLogClick={goToGenerateLog} onAnalyzeClick={goToAnalyzer} onAnalyticsClick={goToAnalytics} currentPage="generateLog" isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
           <GenerateLogPage onNavigateToAnalyze={goToAnalyzeFromGenerate} />
         </div>
       )}
 
       {currentPage === 'analyzer' && (
         <div className="analyzer-page">
-          <Navbar onBackClick={goToLanding} onGenerateLogClick={goToGenerateLog} onAnalyticsClick={goToAnalytics} currentPage="analyzer" />
+          <Navbar onBackClick={goToLanding} onGenerateLogClick={goToGenerateLog} onAnalyzeClick={goToAnalyzer} onAnalyticsClick={goToAnalytics} currentPage="analyzer" isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
           <AnalyzePage 
             logText={logText}
             setLogText={setLogText}
@@ -124,11 +136,11 @@ function App() {
 
       {currentPage === 'analytics' && (
         <div className="analytics-page">
-          <Navbar onBackClick={goToLanding} onGenerateLogClick={goToGenerateLog} onAnalyticsClick={goToAnalytics} currentPage="analytics" />
+          <Navbar onBackClick={goToLanding} onGenerateLogClick={goToGenerateLog} onAnalyzeClick={goToAnalyzer} onAnalyticsClick={goToAnalytics} currentPage="analytics" isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
           <AnalyticsDashboard />
         </div>
       )}
-    </>
+    </div>
   );
 }
 

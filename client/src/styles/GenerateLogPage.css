@@ -301,3 +301,86 @@
     font-size: 0.9rem;
   }
 }
+
+/* ============ DARK MODE STYLES ============ */
+.dark-mode .generate-log-main {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a3a4a 100%);
+}
+
+.dark-mode .generate-log-header {
+  color: #e0e0e0;
+}
+
+.dark-mode .generate-log-header h1 {
+  color: #4a9eff;
+}
+
+.dark-mode .generate-log-header p {
+  color: #c0c0c0;
+}
+
+.dark-mode .generate-card {
+  background: #1e1e1e;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .generate-card h2 {
+  color: #4a9eff;
+}
+
+.dark-mode .generate-card p {
+  color: #c0c0c0;
+}
+
+.dark-mode .log-result-card {
+  background: #1e1e1e;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .log-header h2 {
+  color: #4a9eff;
+}
+
+.dark-mode .log-text-box {
+  background: #2a2a2a;
+  border-color: #444;
+}
+
+.dark-mode .log-text {
+  color: #c0c0c0;
+}
+
+.dark-mode .reasons-section {
+  color: #e0e0e0;
+}
+
+.dark-mode .reasons-section h3 {
+  color: #4a9eff;
+}
+
+.dark-mode .reason-item {
+  color: #c0c0c0;
+  border-color: #444;
+}
+
+.dark-mode .spinner {
+  border-color: #444;
+  border-top-color: #4a9eff;
+}
+
+.dark-mode .loading-section {
+  color: #c0c0c0;
+}
+
+.dark-mode .error-container {
+  background: #1e1e1e;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .error-container h3 {
+  color: #ff6b6b;
+}
+
+.dark-mode .error-container p {
+  color: #c0c0c0;
+}

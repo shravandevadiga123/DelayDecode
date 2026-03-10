@@ -378,3 +378,67 @@ strong:hover {
     font-size: 0.95rem;
   }
 }
+
+/* ============ DARK MODE STYLES ============ */
+.dark-mode .analyzer-main {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a3a4a 100%);
+}
+
+.dark-mode .section-container {
+  background: #1e1e1e;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.dark-mode .input-section h2,
+.dark-mode .result-section h2 {
+  color: #4a9eff;
+}
+
+.dark-mode .generated-log-info {
+  background: #1e3a52;
+  border-left-color: #4a9eff;
+}
+
+.dark-mode .info-text {
+  color: #4a9eff;
+}
+
+.dark-mode .form-group label {
+  color: #e0e0e0;
+}
+
+.dark-mode .form-group textarea {
+  background: #2a2a2a;
+  border-color: #444;
+  color: #e0e0e0;
+}
+
+.dark-mode .form-group textarea:focus {
+  border-color: #4a9eff;
+  box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.1);
+}
+
+.dark-mode .result-card {
+  background: linear-gradient(135deg, #1e3a52 0%, rgba(74, 158, 255, 0.05) 100%);
+  border-left-color: #4a9eff;
+  box-shadow: 0 2px 12px rgba(74, 158, 255, 0.1);
+}
+
+.dark-mode .result-card:hover {
+  box-shadow: 0 4px 16px rgba(74, 158, 255, 0.2);
+}
+
+.dark-mode .message-intro,
+.dark-mode .message-body,
+.dark-mode .message-closing,
+.dark-mode .result-text {
+  color: #c0c0c0;
+}
+
+.dark-mode .actionable-title {
+  color: #4a9eff;
+}
+
+.dark-mode .actionable-steps {
+  color: #c0c0c0;
+}

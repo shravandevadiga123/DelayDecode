@@ -154,3 +154,32 @@
     font-size: 0.9rem;
   }
 }
+
+/* ============ DARK MODE STYLES ============ */
+.dark-mode .landing-left {
+  background-color: #2a4a7f;
+}
+
+.dark-mode .landing-right {
+  background-color: #1e1e1e;
+}
+
+.dark-mode .logo-placeholder {
+  background-color: #1e1e1e;
+}
+
+.dark-mode .main-title {
+  color: #ffffff;
+}
+
+.dark-mode .description {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-mode .get-started-btn {
+  background-color: #4a9eff;
+}
+
+.dark-mode .get-started-btn:hover {
+  background-color: #2e5a7d;
+}

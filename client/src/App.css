@@ -13,6 +13,21 @@
   --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
+.dark-mode {
+  --primary-blue: #4a9eff;
+  --primary-blue-dark: #2e78d4;
+  --primary-blue-light: #1e3a52;
+  --primary-blue-button: #2e78d4;
+  --text-dark: #e0e0e0;
+  --text-light: #b0b0b0;
+  --bg-light: #121212;
+  --bg-white: #1e1e1e;
+  --border-color: #333333;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -29,11 +44,20 @@ body {
   min-height: 100vh;
   color: var(--text-dark);
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #root {
   width: 100%;
   height: 100%;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ============ LANDING PAGE ============ */
@@ -48,6 +72,12 @@ body {
   background-size: 400% 400%, 100% 100%, 100% 100%;
   background-position: center, 0 0, 0 0;
   animation: gradientShift 15s ease infinite;
+}
+
+.dark-mode .landing-page {
+  background: linear-gradient(135deg, #0f1416 0%, #1a2b3a 25%, #1e3a4f 50%, #2b4a66 75%, #2e5a7d 100%),
+              repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,0.05) 35px, rgba(255,255,255,0.05) 70px),
+              repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(0,0,0,0.2) 35px, rgba(0,0,0,0.2) 70px);
 }
 
 @keyframes gradientShift {
@@ -365,6 +395,24 @@ textarea:focus {
   background: white;
   border-color: var(--primary-blue);
   color: var(--primary-blue);
+}
+
+.dark-mode .btn-secondary {
+  background: #2a2a2a;
+  border-color: var(--border-color);
+  color: var(--text-dark);
+}
+
+.dark-mode .btn-secondary:hover {
+  background: #3a3a3a;
+  border-color: var(--primary-blue);
+  color: var(--primary-blue);
+}
+
+.dark-mode textarea:focus {
+  background: #2a2a2a;
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 4px rgba(74, 158, 255, 0.15);
 }
 
 .result-card {

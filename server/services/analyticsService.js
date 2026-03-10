@@ -1,12 +1,63 @@
 /**
  * Analytics Service - Stores and analyzes shipment delay logs
- * Maintains in-memory storage with duplicate prevention
+ * Maintains in-memory storage with file-based persistence
  */
+
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const LOGS_FILE = path.join(__dirname, '../data/logs.json');
+
+// Ensure data directory exists
+const dataDir = path.join(__dirname, '../data');
+if (!fs.existsSync(dataDir)) {
+  fs.mkdirSync(dataDir, { recursive: true });
+}
 
 class AnalyticsService {
   constructor() {
     this.generatedLogs = [];
     this.logIds = new Set();
+    this.loadLogsFromFile();
+  }
+
+  /**
+   * Loads logs from persistent storage (JSON file)
+   */
+  loadLogsFromFile() {
+    try {
+      if (fs.existsSync(LOGS_FILE)) {
+        const data = fs.readFileSync(LOGS_FILE, 'utf-8');
+        const parsedLogs = JSON.parse(data);
+        this.generatedLogs = parsedLogs;
+        
+        // Rebuild logIds set from loaded logs
+        this.generatedLogs.forEach(log => {
+          if (log.logId) {
+            this.logIds.add(log.logId);
+          }
+        });
+        
+        console.log(`Loaded ${this.generatedLogs.length} logs from persistent storage`);
+      }
+    } catch (error) {
+      console.error('Error loading logs from file:', error);
+      this.generatedLogs = [];
+      this.logIds = new Set();
+    }
+  }
+
+  /**
+   * Saves logs to persistent storage (JSON file)
+   */
+  saveLogsToFile() {
+    try {
+      fs.writeFileSync(LOGS_FILE, JSON.stringify(this.generatedLogs, null, 2), 'utf-8');
+    } catch (error) {
+      console.error('Error saving logs to file:', error);
+    }
   }
 
   /**
@@ -112,6 +163,9 @@ class AnalyticsService {
     // Add to storage
     this.logIds.add(logData.logId);
     this.generatedLogs.push(logData);
+    
+    // Save to persistent storage
+    this.saveLogsToFile();
 
     return logData;
   }
@@ -243,6 +297,7 @@ class AnalyticsService {
   clearLogs() {
     this.generatedLogs = [];
     this.logIds.clear();
+    this.saveLogsToFile();
   }
 }
 
