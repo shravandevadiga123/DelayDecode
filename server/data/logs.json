@@ -156,5 +156,21 @@
       "Holiday Operational Disruption"
     ],
     "timestamp": "2026-03-10T07:56:16.838Z"
+  },
+  {
+    "logId": "8985",
+    "delay": 164,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H149 → H257",
+    "weight": 7,
+    "orderType": "Prepaid",
+    "sla": "Standard",
+    "sunday": false,
+    "holiday": false,
+    "reasons": [
+      "Remote Delivery Zone"
+    ],
+    "timestamp": "2026-03-11T06:12:04.616Z"
   }
 ]
