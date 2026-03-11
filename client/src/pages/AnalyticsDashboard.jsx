@@ -40,8 +40,14 @@ function AnalyticsDashboard() {
   if (loading) {
     return (
       <div className="analytics-loading">
-        <div className="spinner"></div>
-        <p>Loading analytics...</p>
+        <div className="loading-card">
+          <div className="loading-spinner">
+            <div className="spinner-dot"></div>
+            <div className="spinner-dot"></div>
+            <div className="spinner-dot"></div>
+          </div>
+          <p>Loading analytics...</p>
+        </div>
       </div>
     );
   }
@@ -49,10 +55,14 @@ function AnalyticsDashboard() {
   if (error) {
     return (
       <div className="analytics-error">
-        <p>Error: {error}</p>
-        <button onClick={fetchAnalytics} className="btn btn-primary">
-          Retry
-        </button>
+        <div className="error-card">
+          <div className="error-icon">❌</div>
+          <h3>Error Loading Analytics</h3>
+          <p>{error}</p>
+          <button onClick={fetchAnalytics} className="action-btn">
+            Retry
+          </button>
+        </div>
       </div>
     );
   }
@@ -60,80 +70,92 @@ function AnalyticsDashboard() {
   if (!analytics) {
     return (
       <div className="analytics-empty">
-        <p>No analytics data available. Generate some delay logs first!</p>
+        <div className="empty-card">
+          <div className="empty-icon">📊</div>
+          <h3>No Analytics Data</h3>
+          <p>Generate some delay logs first to see analytics!</p>
+        </div>
       </div>
     );
   }
 
   return (
     <main className="analytics-dashboard">
-      <div className="dashboard-header">
-        <h1>Shipment Delay Analytics Dashboard</h1>
-        <p>Real-time insights from generated delay logs</p>
-      </div>
+      <div className="dashboard-container">
+        {/* Page Header */}
+        <div className="page-header">
+          <h1 className="page-title">Shipment Delay Analytics</h1>
+          <p className="page-subtitle">Real-time insights from generated delay logs</p>
+        </div>
 
-      {/* Operational Insights Panel */}
-      <section className="operational-insights">
-        <h2>Operational Insights</h2>
-        <div className="insights-grid">
-          <div className="insight-card">
-            <div className="insight-label">Total Logs Analyzed</div>
-            <div className="insight-value">{analytics.totalLogs}</div>
-          </div>
-          <div className="insight-card">
-            <div className="insight-label">Average Delay Duration</div>
-            <div className="insight-value">{analytics.averageDelay} hrs</div>
-          </div>
-          <div className="insight-card">
-            <div className="insight-label">Average Transit Hops</div>
-            <div className="insight-value">{analytics.averageHops}</div>
-          </div>
-          <div className="insight-card">
-            <div className="insight-label">Non-Metropolitan Delays</div>
-            <div className="insight-value">{analytics.nonMetroPercentage}%</div>
-          </div>
-          <div className="insight-card">
-            <div className="insight-label">Most Frequent Delay Cause</div>
-            <div className="insight-value-text">
-              {analytics.mostFrequentCause || 'N/A'}
+        {/* Operational Insights Panel */}
+        <section className="operational-insights">
+          <h2 className="section-title">Operational Insights</h2>
+          <div className="insights-grid">
+            <div className="insight-card">
+              <div className="insight-label">Total Logs Analyzed</div>
+              <div className="insight-value">{analytics.totalLogs}</div>
+            </div>
+            <div className="insight-card">
+              <div className="insight-label">Average Delay Duration</div>
+              <div className="insight-value">{analytics.averageDelay} hrs</div>
+            </div>
+            <div className="insight-card">
+              <div className="insight-label">Average Transit Hops</div>
+              <div className="insight-value">{analytics.averageHops}</div>
+            </div>
+            <div className="insight-card">
+              <div className="insight-label">Non-Metropolitan Delays</div>
+              <div className="insight-value">{analytics.nonMetroPercentage}%</div>
+            </div>
+            <div className="insight-card">
+              <div className="insight-label">Most Frequent Delay Cause</div>
+              <div className="insight-value-text">
+                {analytics.mostFrequentCause || 'N/A'}
+              </div>
+            </div>
+            <div className="insight-card">
+              <div className="insight-label">Most Common Transit Hops</div>
+              <div className="insight-value">{analytics.mostCommonHops || 'N/A'}</div>
             </div>
           </div>
-          <div className="insight-card">
-            <div className="insight-label">Most Common Transit Hops</div>
-            <div className="insight-value">{analytics.mostCommonHops || 'N/A'}</div>
-          </div>
-        </div>
-      </section>
+        </section>
 
       {/* Current Shipment Analysis */}
       {logs.length > 0 && (
         <section className="current-shipment">
-          <h2>Current Shipment Analysis</h2>
+          <h2 className="section-title">Current Shipment Analysis</h2>
           <CurrentShipmentMetrics latestLog={logs[logs.length - 1]} />
         </section>
       )}
 
       {/* Analytics Charts */}
       <section className="analytics-charts">
-        <h2>Analytics Charts</h2>
+        <h2 className="section-title">Analytics Charts</h2>
         <div className="charts-grid">
           {/* Delay Distribution */}
-          <div className="chart-container">
-            <h3>Delay Distribution</h3>
+          <div className="chart-card">
+            <h3 className="chart-title">Delay Distribution</h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={transformDelayDistribution(analytics.delayDistribution)}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="count" fill="#145DBE" />
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(20, 93, 190, 0.1)" />
+                <XAxis dataKey="name" stroke="rgba(20, 93, 190, 0.6)" />
+                <YAxis stroke="rgba(20, 93, 190, 0.6)" />
+                <Tooltip 
+                  contentStyle={{ 
+                    background: 'rgba(255, 255, 255, 0.95)',
+                    border: '1px solid rgba(20, 93, 190, 0.2)',
+                    borderRadius: '8px'
+                  }}
+                />
+                <Bar dataKey="count" fill="#145DBE" radius={[8, 8, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
 
           {/* Delay Causes Breakdown */}
-          <div className="chart-container">
-            <h3>Delay Causes Breakdown</h3>
+          <div className="chart-card">
+            <h3 className="chart-title">Delay Causes Breakdown</h3>
             <ResponsiveContainer width="100%" height={300}>
               <PieChart>
                 <Pie
@@ -145,50 +167,40 @@ function AnalyticsDashboard() {
                   outerRadius={80}
                   fill="#8884d8"
                   dataKey="value"
+                  animationBegin={0}
+                  animationDuration={800}
                 >
                   {transformCauseBreakdown(analytics.causeBreakdown).map((entry, index) => (
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
-                <Tooltip />
-              </PieChart>
-            </ResponsiveContainer>
-          </div>
-
-          {/* Metro vs Non-Metro Delays */}
-          <div className="chart-container">
-            <h3>Metro vs Non-Metro Delays</h3>
-            <ResponsiveContainer width="100%" height={300}>
-              <PieChart>
-                <Pie
-                  data={transformZoneBreakdown(analytics.zoneBreakdown)}
-                  cx="50%"
-                  cy="50%"
-                  labelLine={false}
-                  label={renderCustomLabel}
-                  outerRadius={80}
-                  fill="#8884d8"
-                  dataKey="value"
-                >
-                  {transformZoneBreakdown(analytics.zoneBreakdown).map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={ZONE_COLORS[index]} />
-                  ))}
-                </Pie>
-                <Tooltip />
+                <Tooltip 
+                  contentStyle={{ 
+                    background: 'rgba(255, 255, 255, 0.95)',
+                    border: '1px solid rgba(20, 93, 190, 0.2)',
+                    borderRadius: '8px'
+                  }}
+                />
               </PieChart>
             </ResponsiveContainer>
           </div>
 
           {/* Transit Hops Distribution */}
-          <div className="chart-container">
-            <h3>Transit Hops Distribution</h3>
+          <div className="chart-card">
+            <h3 className="chart-title">Transit Hops Distribution</h3>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={transformHopsDistribution(logs)}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="hops" />
-                <YAxis />
-                <Tooltip />
-                <Bar dataKey="count" fill="#28a745" />
+                <CartesianGrid strokeDasharray="3 3" stroke="rgba(20, 93, 190, 0.1)" />
+                <XAxis dataKey="hops" stroke="rgba(20, 93, 190, 0.6)" />
+                <YAxis stroke="rgba(20, 93, 190, 0.6)" />
+                <Tooltip 
+                  contentStyle={{ 
+                    background: 'rgba(255, 255, 255, 0.95)',
+                    border: '1px solid rgba(20, 93, 190, 0.2)',
+                    borderRadius: '8px'
+                  }}
+                />
+                <Bar dataKey="count" fill="#22C55E" radius={[8, 8, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -198,27 +210,29 @@ function AnalyticsDashboard() {
       {/* Hub Route Flow */}
       {Object.keys(analytics.routeFlows).length > 0 && (
         <section className="route-flow">
-          <h2>Hub Route Flow Analysis</h2>
-          <div className="route-flow-container">
+          <h2 className="section-title">Hub Route Flow Analysis</h2>
+          <div className="route-flow-card">
             <div className="route-flows-list">
               {Object.entries(analytics.routeFlows)
                 .sort((a, b) => b[1] - a[1])
                 .slice(0, 10)
-                .map(([route, count], index) => (
-                  <div key={index} className="route-flow-item">
-                    <div className="route-flow-label">{route}</div>
-                    <div className="route-flow-bar">
-                      <div 
-                        className="route-flow-fill" 
-                        style={{ 
-                          width: `${(count / Math.max(...Object.values(analytics.routeFlows))) * 100}%` 
-                        }}
-                      >
-                        <span className="route-flow-count">{count}</span>
+                .map(([route, count], index) => {
+                  const maxCount = Math.max(...Object.values(analytics.routeFlows));
+                  const percentage = (count / maxCount) * 100;
+                  return (
+                    <div key={index} className="route-flow-item">
+                      <div className="route-flow-label">{route}</div>
+                      <div className="route-flow-bar">
+                        <div 
+                          className="route-flow-fill" 
+                          style={{ width: `${percentage}%` }}
+                        >
+                          <span className="route-flow-count">{count}</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
             </div>
           </div>
         </section>
@@ -226,9 +240,9 @@ function AnalyticsDashboard() {
 
       {/* Recent Delay Logs */}
       <section className="recent-logs">
-        <h2>Recent Delay Logs</h2>
-        <div className="logs-table">
-          <table>
+        <h2 className="section-title">Recent Delay Logs</h2>
+        <div className="logs-table-card">
+          <table className="logs-table">
             <thead>
               <tr>
                 <th>Log ID</th>
@@ -243,10 +257,14 @@ function AnalyticsDashboard() {
             <tbody>
               {logs.slice(-10).reverse().map((log) => (
                 <tr key={log.logId}>
-                  <td>LOG-{log.logId}</td>
-                  <td>{Math.abs(log.delay)}</td>
+                  <td className="log-id">LOG-{log.logId}</td>
+                  <td className="delay-value">{Math.abs(log.delay)}</td>
                   <td>{log.hops}</td>
-                  <td>{log.zone}</td>
+                  <td>
+                    <span className={`zone-badge ${log.zone === 'Metropolitan' ? 'metro' : 'non-metro'}`}>
+                      {log.zone}
+                    </span>
+                  </td>
                   <td>{log.orderType}</td>
                   <td>{log.sla}</td>
                   <td>
@@ -262,6 +280,7 @@ function AnalyticsDashboard() {
           </table>
         </div>
       </section>
+      </div>
     </main>
   );
 }
@@ -320,6 +339,31 @@ function transformCauseBreakdown(causeBreakdown) {
   }));
 }
 
+// FIXED: Compute zone breakdown with proper string normalization
+function computeZoneBreakdown(logs) {
+  let metroCount = 0;
+  let nonMetroCount = 0;
+
+  logs.forEach(log => {
+    const zone = (log.zone || "")
+      .toLowerCase()
+      .trim()
+      .replace("-", " ");
+    
+    // Check for non-metro first (contains "non")
+    if (zone.includes("non")) {
+      nonMetroCount++;
+    } else if (zone.includes("metro")) {
+      metroCount++;
+    }
+  });
+
+  return [
+    { name: "Metropolitan", value: metroCount },
+    { name: "Non-Metropolitan", value: nonMetroCount }
+  ];
+}
+
 function transformZoneBreakdown(zoneBreakdown) {
   return [
     { name: 'Metropolitan', value: zoneBreakdown.Metropolitan || 0 },
@@ -358,7 +402,7 @@ function renderCustomLabel({ cx, cy, midAngle, innerRadius, outerRadius, percent
   );
 }
 
-const COLORS = ['#145DBE', '#28a745', '#ffc107', '#dc3545', '#17a2b8', '#6c757d'];
-const ZONE_COLORS = ['#145DBE', '#ffc107'];
+const COLORS = ['#145DBE', '#3B82F6', '#22C55E', '#FACC15', '#EF4444', '#8B5CF6'];
+const ZONE_COLORS = ['#145DBE', '#FACC15'];
 
 export default AnalyticsDashboard;

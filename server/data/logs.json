@@ -172,5 +172,514 @@
       "Remote Delivery Zone"
     ],
     "timestamp": "2026-03-11T06:12:04.616Z"
+  },
+  {
+    "logId": "596",
+    "delay": 176,
+    "hops": 2,
+    "zone": "Non-Metropolitan",
+    "route": "H770 → H128 → H169",
+    "weight": 5,
+    "orderType": "Prepaid",
+    "sla": "Standard",
+    "sunday": false,
+    "holiday": false,
+    "reasons": [
+      "Remote Delivery Zone"
+    ],
+    "timestamp": "2026-03-11T13:38:42.105Z"
+  },
+  {
+    "logId": "12718",
+    "delay": 142,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H700 → H299",
+    "weight": 32,
+    "orderType": "Unknown",
+    "sla": "Standard",
+    "sunday": false,
+    "holiday": false,
+    "reasons": [
+      "Remote Delivery Zone"
+    ],
+    "timestamp": "2026-03-11T13:40:53.375Z"
+  },
+  {
+    "logId": "14298",
+    "delay": 501,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H700 → H240",
+    "weight": 46,
+    "orderType": "Prepaid",
+    "sla": "Express",
+    "sunday": false,
+    "holiday": false,
+    "reasons": [
+      "SLA Breach",
+      "Remote Delivery Zone"
+    ],
+    "timestamp": "2026-03-11T13:48:38.639Z"
+  },
+  {
+    "logId": "11899",
+    "delay": 2509,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H349 → H136",
+    "weight": 49,
+    "orderType": "Prepaid",
+    "sla": "Express",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "SLA Breach",
+      "Weekend Operational Pause"
+    ],
+    "timestamp": "2026-03-11T13:55:39.942Z"
+  },
+  {
+    "logId": "11100",
+    "delay": 1414,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H349 → H149",
+    "weight": 24,
+    "orderType": "Prepaid",
+    "sla": "Express",
+    "sunday": true,
+    "holiday": false,
+    "reasons": [
+      "SLA Breach",
+      "Significant Delay",
+      "Weekend Operational Pause"
+    ],
+    "timestamp": "2026-03-11T13:56:06.775Z"
+  },
+  {
+    "logId": "4901",
+    "delay": 1428,
+    "hops": 2,
+    "zone": "Non-Metropolitan",
+    "route": "H388 → H261 → H628",
+    "weight": 27,
+    "orderType": "Prepaid",
+    "sla": "Standard",
+    "sunday": true,
+    "holiday": false,
+    "reasons": [
+      "Significant Delay",
+      "Weekend Operational Pause",
+      "Remote Delivery Zone"
+    ],
+    "timestamp": "2026-03-11T14:04:06.684Z"
+  },
+  {
+    "logId": "5345",
+    "delay": 16007,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H485 → H149",
+    "weight": 18,
+    "orderType": "Prepaid",
+    "sla": "Standard",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "Weekend Operational Pause",
+      "Holiday Operational Disruption"
+    ],
+    "timestamp": "2026-03-11T14:04:22.884Z"
+  },
+  {
+    "logId": "10434",
+    "delay": 2026,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H815 → H710",
+    "weight": 13,
+    "orderType": "Unknown",
+    "sla": "Express",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "SLA Breach",
+      "Weekend Operational Pause"
+    ],
+    "timestamp": "2026-03-11T14:12:09.381Z"
+  },
+  {
+    "logId": "12581",
+    "delay": 20213,
+    "hops": 2,
+    "zone": "Non-Metropolitan",
+    "route": "H809 → H555 → H620",
+    "weight": 10,
+    "orderType": "Prepaid",
+    "sla": "Overnight",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "SLA Breach",
+      "Weekend Operational Pause"
+    ],
+    "timestamp": "2026-03-11T14:22:29.932Z"
+  },
+  {
+    "logId": "10184",
+    "delay": 80,
+    "hops": 2,
+    "zone": "Non-Metropolitan",
+    "route": "H403 → H800 → H809",
+    "weight": 9,
+    "orderType": "Prepaid",
+    "sla": "Express",
+    "sunday": false,
+    "holiday": false,
+    "reasons": [
+      "Remote Delivery Zone"
+    ],
+    "timestamp": "2026-03-11T14:27:42.651Z"
+  },
+  {
+    "logId": "610",
+    "delay": 622,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H609 → H485",
+    "weight": 35,
+    "orderType": "Prepaid",
+    "sla": "Standard",
+    "sunday": false,
+    "holiday": false,
+    "reasons": [
+      "Remote Delivery Zone"
+    ],
+    "timestamp": "2026-03-11T14:34:37.156Z"
+  },
+  {
+    "logId": "3067",
+    "delay": 7841,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H349 → H149",
+    "weight": 48,
+    "orderType": "Prepaid",
+    "sla": "Standard",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "Weekend Operational Pause",
+      "Holiday Operational Disruption"
+    ],
+    "timestamp": "2026-03-11T14:35:12.465Z"
+  },
+  {
+    "logId": "7424",
+    "delay": 2774,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H256 → H308",
+    "weight": 30,
+    "orderType": "Prepaid",
+    "sla": "Standard",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "Weekend Operational Pause",
+      "Holiday Operational Disruption"
+    ],
+    "timestamp": "2026-03-11T14:39:45.448Z"
+  },
+  {
+    "logId": "4395",
+    "delay": 6309,
+    "hops": 3,
+    "zone": "Non-Metropolitan",
+    "route": "H671 → H609 → H555 → H667",
+    "weight": 31,
+    "orderType": "Unknown",
+    "sla": "Express",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "SLA Breach",
+      "Multiple Transit Hops"
+    ],
+    "timestamp": "2026-03-11T14:44:53.453Z"
+  },
+  {
+    "logId": "6678",
+    "delay": 984,
+    "hops": 2,
+    "zone": "Non-Metropolitan",
+    "route": "H783 → H815 → H313",
+    "weight": 27,
+    "orderType": "Unknown",
+    "sla": "Standard",
+    "sunday": false,
+    "holiday": false,
+    "reasons": [
+      "COD Processing Delay",
+      "Remote Delivery Zone"
+    ],
+    "timestamp": "2026-03-11T14:46:31.962Z"
+  },
+  {
+    "logId": "5307",
+    "delay": 5109,
+    "hops": 2,
+    "zone": "Non-Metropolitan",
+    "route": "H610 → H128 → H102",
+    "weight": 7,
+    "orderType": "Prepaid",
+    "sla": "Standard",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "Weekend Operational Pause",
+      "Holiday Operational Disruption"
+    ],
+    "timestamp": "2026-03-11T14:47:38.143Z"
+  },
+  {
+    "logId": "13591",
+    "delay": 339,
+    "hops": 2,
+    "zone": "Non-Metropolitan",
+    "route": "H153 → H349 → H597",
+    "weight": 45,
+    "orderType": "Unknown",
+    "sla": "Standard",
+    "sunday": false,
+    "holiday": false,
+    "reasons": [
+      "Remote Delivery Zone"
+    ],
+    "timestamp": "2026-03-11T14:52:05.703Z"
+  },
+  {
+    "logId": "912",
+    "delay": 19894,
+    "hops": 2,
+    "zone": "Non-Metropolitan",
+    "route": "H609 → H815 → H243",
+    "weight": 9,
+    "orderType": "Prepaid",
+    "sla": "Standard",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "Weekend Operational Pause",
+      "Holiday Operational Disruption"
+    ],
+    "timestamp": "2026-03-11T14:55:57.349Z"
+  },
+  {
+    "logId": "12939",
+    "delay": 1155,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H308 → H597",
+    "weight": 20,
+    "orderType": "Prepaid",
+    "sla": "Express",
+    "sunday": true,
+    "holiday": false,
+    "reasons": [
+      "SLA Breach",
+      "Significant Delay",
+      "Weekend Operational Pause"
+    ],
+    "timestamp": "2026-03-11T14:56:38.036Z"
+  },
+  {
+    "logId": "9677",
+    "delay": 532,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H349 → H341",
+    "weight": 37,
+    "orderType": "Prepaid",
+    "sla": "Express",
+    "sunday": false,
+    "holiday": false,
+    "reasons": [
+      "SLA Breach",
+      "Remote Delivery Zone"
+    ],
+    "timestamp": "2026-03-11T14:57:56.287Z"
+  },
+  {
+    "logId": "14309",
+    "delay": 1811,
+    "hops": 2,
+    "zone": "Non-Metropolitan",
+    "route": "H398 → H128 → H753",
+    "weight": 7,
+    "orderType": "Unknown",
+    "sla": "Express",
+    "sunday": true,
+    "holiday": false,
+    "reasons": [
+      "SLA Breach",
+      "Significant Delay",
+      "Weekend Operational Pause"
+    ],
+    "timestamp": "2026-03-11T14:58:53.808Z"
+  },
+  {
+    "logId": "12573",
+    "delay": 1140,
+    "hops": 2,
+    "zone": "Non-Metropolitan",
+    "route": "H456 → H349 → H327",
+    "weight": 21,
+    "orderType": "Prepaid",
+    "sla": "Standard",
+    "sunday": true,
+    "holiday": false,
+    "reasons": [
+      "Significant Delay",
+      "Weekend Operational Pause",
+      "Remote Delivery Zone"
+    ],
+    "timestamp": "2026-03-11T15:01:45.874Z"
+  },
+  {
+    "logId": "6574",
+    "delay": 3540,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H700 → H206",
+    "weight": 24,
+    "orderType": "Prepaid",
+    "sla": "Express",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "SLA Breach",
+      "Weekend Operational Pause"
+    ],
+    "timestamp": "2026-03-11T15:02:01.330Z"
+  },
+  {
+    "logId": "1617",
+    "delay": 3131,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H371 → H431",
+    "weight": 29,
+    "orderType": "Prepaid",
+    "sla": "Overnight",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "SLA Breach",
+      "Weekend Operational Pause"
+    ],
+    "timestamp": "2026-03-11T15:02:55.566Z"
+  },
+  {
+    "logId": "6368",
+    "delay": 1044,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H700 → H561",
+    "weight": 19,
+    "orderType": "Prepaid",
+    "sla": "Standard",
+    "sunday": true,
+    "holiday": false,
+    "reasons": [
+      "Significant Delay",
+      "Weekend Operational Pause",
+      "Remote Delivery Zone"
+    ],
+    "timestamp": "2026-03-11T15:03:32.519Z"
+  },
+  {
+    "logId": "6434",
+    "delay": 3219,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H700 → H597",
+    "weight": 11,
+    "orderType": "Unknown",
+    "sla": "Standard",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "Weekend Operational Pause",
+      "Holiday Operational Disruption"
+    ],
+    "timestamp": "2026-03-11T15:05:17.644Z"
+  },
+  {
+    "logId": "12588",
+    "delay": 22619,
+    "hops": 2,
+    "zone": "Non-Metropolitan",
+    "route": "H809 → H555 → H620",
+    "weight": 26,
+    "orderType": "Prepaid",
+    "sla": "Standard",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "Weekend Operational Pause",
+      "Holiday Operational Disruption"
+    ],
+    "timestamp": "2026-03-11T15:14:39.198Z"
+  },
+  {
+    "logId": "9066",
+    "delay": 25500,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H609 → H206",
+    "weight": 39,
+    "orderType": "Prepaid",
+    "sla": "Standard",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "Weekend Operational Pause",
+      "Holiday Operational Disruption"
+    ],
+    "timestamp": "2026-03-11T15:22:32.682Z"
+  },
+  {
+    "logId": "11861",
+    "delay": 96970,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H671 → H206",
+    "weight": 34,
+    "orderType": "Prepaid",
+    "sla": "Standard",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "Weekend Operational Pause",
+      "Holiday Operational Disruption"
+    ],
+    "timestamp": "2026-03-11T15:50:48.438Z"
   }
 ]
