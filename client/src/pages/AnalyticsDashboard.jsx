@@ -98,7 +98,7 @@ function AnalyticsDashboard() {
             </div>
             <div className="insight-card">
               <div className="insight-label">Average Delay Duration</div>
-              <div className="insight-value">{analytics.averageDelay} hrs</div>
+              <div className="insight-value">{(analytics.averageDelay / 60).toFixed(1)} hrs</div>
             </div>
             <div className="insight-card">
               <div className="insight-label">Average Transit Hops</div>
@@ -156,15 +156,16 @@ function AnalyticsDashboard() {
           {/* Delay Causes Breakdown */}
           <div className="chart-card">
             <h3 className="chart-title">Delay Causes Breakdown</h3>
-            <ResponsiveContainer width="100%" height={300}>
+            <ResponsiveContainer width="100%" height={350}>
               <PieChart>
                 <Pie
                   data={transformCauseBreakdown(analytics.causeBreakdown)}
-                  cx="50%"
+                  cx="45%"
                   cy="50%"
                   labelLine={false}
                   label={renderCustomLabel}
                   outerRadius={80}
+                  innerRadius={50}
                   fill="#8884d8"
                   dataKey="value"
                   animationBegin={0}
@@ -180,6 +181,12 @@ function AnalyticsDashboard() {
                     border: '1px solid rgba(20, 93, 190, 0.2)',
                     borderRadius: '8px'
                   }}
+                />
+                <Legend 
+                  verticalAlign="middle" 
+                  align="right"
+                  layout="vertical"
+                  wrapperStyle={{ paddingLeft: '20px' }}
                 />
               </PieChart>
             </ResponsiveContainer>
@@ -293,7 +300,7 @@ function CurrentShipmentMetrics({ latestLog }) {
     <div className="metrics-grid">
       <div className="metric-card">
         <div className="metric-label">Delay Duration</div>
-        <div className="metric-value">{Math.abs(latestLog.delay)} hrs</div>
+        <div className="metric-value">{Math.abs(latestLog.delay/60).toFixed(2)} hrs</div>
       </div>
       <div className="metric-card">
         <div className="metric-label">Transit Hops</div>

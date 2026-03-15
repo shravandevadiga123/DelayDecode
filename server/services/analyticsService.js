@@ -219,8 +219,9 @@ class AnalyticsService {
     const zoneBreakdown = { Metropolitan: 0, 'Non-Metropolitan': 0 };
 
     logs.forEach(log => {
-      // Delay stats
-      totalDelay += Math.abs(log.delay);
+      // Delay stats (convert from minutes to hours)
+      const delayInHours = Math.abs(log.delay) / 60;
+      totalDelay += delayInHours;
       
       // Hops stats
       totalHops += log.hops;
@@ -232,8 +233,8 @@ class AnalyticsService {
       }
       zoneBreakdown[log.zone] = (zoneBreakdown[log.zone] || 0) + 1;
 
-      // Delay distribution (in days, assuming time units are hours)
-      const delayDays = Math.abs(log.delay) / 24;
+      // Delay distribution (convert from minutes to hours, then to days)
+      const delayDays = delayInHours / 24;
       if (delayDays < 1) {
         delayDistribution['0-1']++;
       } else if (delayDays < 2) {

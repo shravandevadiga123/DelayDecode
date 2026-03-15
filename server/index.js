@@ -2,6 +2,8 @@ import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import delayRoutes from './routes/delay.js';
+import chatRoutes from './routes/chat.js';
+import emailService from './services/emailService.js';
 
 dotenv.config();
 
@@ -18,6 +20,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api', delayRoutes);
+app.use('/api/chat', chatRoutes);
 
 // Start server
 app.listen(PORT, () => {

@@ -3,9 +3,39 @@ import OpenAI from 'openai';
 
 dotenv.config();
 
-const client = new OpenAI({
-  baseURL: process.env.OPENAI_API_BASE_URL
-});
+// API key rotation setup
+const API_KEYS = [
+  process.env.OPENAI_API_KEY,
+  process.env.OPENAI_API_KEY_BACKUP
+].filter(key => key); // Remove undefined keys
+
+let currentKeyIndex = 0;
+
+/**
+ * Gets the next API key in rotation
+ * @returns {string} API key
+ */
+function getNextApiKey() {
+  if (API_KEYS.length === 0) {
+    throw new Error('No API keys configured');
+  }
+  const key = API_KEYS[currentKeyIndex];
+  currentKeyIndex = (currentKeyIndex + 1) % API_KEYS.length;
+  console.log(`Using API key ${currentKeyIndex} of ${API_KEYS.length}`);
+  return key;
+}
+
+/**
+ * Creates OpenAI client with rotated API key
+ * @returns {OpenAI} OpenAI client instance
+ */
+function createClient() {
+  const apiKey = getNextApiKey();
+  return new OpenAI({
+    apiKey,
+    baseURL: process.env.OPENAI_API_BASE_URL
+  });
+}
 
 /**
  * Strips markdown formatting from text but preserves bold formatting
@@ -73,8 +103,18 @@ export async function explainDelay(logText) {
     }
 
     const prompt = `You are a senior logistics operations analyst working for a large e-commerce delivery company. Analyze this shipment delay log and generate:
-1. A clear, empathetic customer-facing explanation
+1. A clear, empathetic customer-facing explanation that includes SPECIFIC details from the log (delay hours, route, hubs, zones)
 2. Operational improvement recommendations that a logistics operations team could implement
+
+CRITICAL: Your customer message MUST include:
+- The EXACT delay duration in hours (extract from the log - NOTE: delay values in the log are in MINUTES, convert to hours by dividing by 60)
+- The SPECIFIC route or hubs involved
+- The SPECIFIC delivery zone (Metropolitan or Non-Metropolitan)
+- The NUMBER of transit hops
+- Any weekend or holiday factors
+- Specific operational reasons for THIS particular delay
+
+IMPORTANT: When you see delay values like "10833" in the log, this is in MINUTES. Convert to hours: 10833 minutes ÷ 60 = approximately 180.5 hours or 7.5 days. Always convert minutes to hours in your response.
 
 Use the information in the shipment log such as route, number of transit hubs, delivery timing difference, operational context, weekend or holiday indicators, delivery zone, and shipment characteristics to infer the most likely operational causes of the delay.
 
@@ -98,6 +138,7 @@ CRITICAL RULES:
 2. The explanation must be simple enough for a customer to understand.
 3. The improvement suggestions must be operational and actionable for a logistics company.
 4. IMPORTANT: Use **bold formatting** (with double asterisks) to highlight critical operational details such as:
+   - Specific delay hours (e.g., **5.5 hours**)
    - Holiday or weekend indicators
    - Non-Metropolitan or remote delivery areas
    - Service Level Agreement breaches
@@ -107,9 +148,11 @@ CRITICAL RULES:
 
 Customer message guidelines:
 - Use a polite and empathetic tone
-- Clearly explain the cause of the delay using simple language
+- MUST include specific numbers: delay hours (converted from minutes), number of hubs, route details
+- IMPORTANT: If you see delay values in the log, they are in MINUTES. Always convert to hours by dividing by 60
+- Clearly explain the cause of the delay using simple language with specific details from THIS log
 - Reassure the customer that corrective actions are being taken
-- Bold important details like **holiday**, **weekend**, **Non-Metropolitan area**, **multiple hub transfers**, etc.
+- Bold important details like **X hours delay**, **holiday**, **weekend**, **Non-Metropolitan area**, **X hub transfers**, etc.
 
 Improvement suggestion guidelines:
 - Identify the most likely operational root cause from the log
@@ -140,6 +183,7 @@ Return ONLY valid JSON with this exact structure (no markdown, no additional tex
 Shipment Delay Log:
 ${logText}`;
 
+    const client = createClient();
     const response = await client.chat.completions.create({
       model: process.env.GEMINI_MODEL,
       messages: [{ "role": "user", "content": prompt }]

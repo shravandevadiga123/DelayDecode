@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ChatInterface from '../components/ChatInterface';
 import '../styles/AnalyzePage.css';
+
+const API_URL = 'http://localhost:5004/api';
 
 /**
  * Converts markdown bold (**text**) to React elements with proper phrase wrapping
@@ -46,6 +49,89 @@ function AnalyzePage({
   analyzeDelay,
   generatedLog,
 }) {
+  const [emailState, setEmailState] = useState({
+    email: '',
+    loading: false,
+    success: false,
+    error: null,
+  });
+
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const handleSendEmail = async () => {
+    // Validate email
+    if (!emailState.email.trim()) {
+      setEmailState(prev => ({
+        ...prev,
+        error: 'Email address is required',
+      }));
+      return;
+    }
+
+    if (!validateEmail(emailState.email)) {
+      setEmailState(prev => ({
+        ...prev,
+        error: 'Please enter a valid email address',
+      }));
+      return;
+    }
+
+    // Prepare message
+    const fullMessage = `${result.customerMessage.intro}\n\n${result.customerMessage.explanation}\n\n${result.customerMessage.resolution}\n\n${result.customerMessage.closing}`;
+
+    try {
+      setEmailState(prev => ({
+        ...prev,
+        loading: true,
+        error: null,
+        success: false,
+      }));
+
+      const response = await fetch(`${API_URL}/send-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: emailState.email,
+          message: fullMessage,
+        }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to send email');
+      }
+
+      const data = await response.json();
+
+      setEmailState(prev => ({
+        ...prev,
+        loading: false,
+        success: true,
+        error: null,
+        email: '',
+      }));
+
+      // Clear success message after 3 seconds
+      setTimeout(() => {
+        setEmailState(prev => ({
+          ...prev,
+          success: false,
+        }));
+      }, 3000);
+    } catch (err) {
+      console.error('Error sending email:', err);
+      setEmailState(prev => ({
+        ...prev,
+        loading: false,
+        error: err.message || 'Failed to send email. Please try again.',
+      }));
+    }
+  };
   return (
     <main className="analyze-main">
       <div className="analyze-container">
@@ -125,8 +211,70 @@ function AnalyzePage({
                   <p className="message-body">{renderBoldText(result.customerMessage.resolution)}</p>
                   <p className="message-closing">{renderBoldText(result.customerMessage.closing)}</p>
                 </div>
+
+                {/* Email Section */}
+                <div className="email-section">
+                  <div className="email-divider"></div>
+                  <h4 className="email-section-title">Send to Customer</h4>
+                  
+                  {emailState.success && (
+                    <div className="email-feedback email-success">
+                      <span className="feedback-icon">✓</span>
+                      <span className="feedback-text">Email sent successfully!</span>
+                    </div>
+                  )}
+
+                  {emailState.error && (
+                    <div className="email-feedback email-error">
+                      <span className="feedback-icon">✕</span>
+                      <span className="feedback-text">{emailState.error}</span>
+                    </div>
+                  )}
+
+                  <div className="email-input-group">
+                    <input
+                      type="email"
+                      className="email-input"
+                      placeholder="Enter customer email address"
+                      value={emailState.email}
+                      onChange={(e) => setEmailState(prev => ({
+                        ...prev,
+                        email: e.target.value,
+                        error: null,
+                      }))}
+                      disabled={emailState.loading}
+                    />
+                    <button
+                      className={`email-send-btn ${emailState.loading ? 'loading' : ''}`}
+                      onClick={handleSendEmail}
+                      disabled={emailState.loading}
+                    >
+                      {emailState.loading ? (
+                        <>
+                          <span className="btn-spinner"></span>
+                          Sending...
+                        </>
+                      ) : (
+                        <>
+                          
+                          Send Email
+                        </>
+                      )}
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
+
+            {/* AI Chat Interface */}
+            <ChatInterface 
+              logContext={{
+                logText,
+                analysis: result.improvementSuggestion,
+                customerMessage: result.customerMessage
+              }}
+              onNewLog={resetForm}
+            />
 
             {/* Root Cause Analysis Card */}
             <div className="result-card">

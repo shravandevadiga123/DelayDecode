@@ -76,23 +76,22 @@ function App() {
   };
 
   const goToAnalyzer = () => {
-    resetForm();
     setCurrentPage('analyzer');
   };
 
   const goToGenerateLog = () => {
-    resetForm();
     setCurrentPage('generateLog');
   };
 
   const goToAnalytics = () => {
-    resetForm();
     setCurrentPage('analytics');
   };
 
   const goToAnalyzeFromGenerate = (log) => {
     setLogText(log);
     setGeneratedLog(log);
+    setResult(null);
+    setError(null);
     setCurrentPage('analyzer');
   };
 
