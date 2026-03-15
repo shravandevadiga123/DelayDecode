@@ -907,5 +907,21 @@
       "Remote Delivery Zone"
     ],
     "timestamp": "2026-03-15T13:31:26.507Z"
+  },
+  {
+    "logId": "7262",
+    "delay": 75,
+    "hops": 1,
+    "zone": "Non-Metropolitan",
+    "route": "H349 → H201",
+    "weight": 39,
+    "orderType": "Unknown",
+    "sla": "Standard",
+    "sunday": false,
+    "holiday": false,
+    "reasons": [
+      "Remote Delivery Zone"
+    ],
+    "timestamp": "2026-03-15T14:34:25.770Z"
   }
 ]

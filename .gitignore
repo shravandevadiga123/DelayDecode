@@ -4,22 +4,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-package-lock.json
-yarn.lock
 
 # ============ ENVIRONMENT VARIABLES ============
-.env
-.env.local
-.env.*.local
-.env.development.local
-.env.test.local
-.env.production.local
 
-# ============ BUILD & DIST ============
-build/
-dist/
-.next/
-out/
 
 # ============ IDE & EDITOR ============
 .vscode/
@@ -36,16 +23,12 @@ out/
 *.sublime-workspace
 .history/
 .ionide
-*.iml
 
-# ============ REACT SPECIFIC ============
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# ============ BUILD & DIST ============
+build/
+dist/
+.next/
+out/
 
 # ============ LOGS ============
 logs/
@@ -57,15 +40,11 @@ Thumbs.db
 .DS_Store
 .AppleDouble
 .LSOverride
-._*
-.Spotlight-V100
-.Trashes
 
 # ============ TESTING ============
 coverage/
 .nyc_output/
 *.lcov
-.jest-cache/
 
 # ============ MISC ============
 .cache/
@@ -74,12 +53,3 @@ coverage/
 .node_repl_history
 *.tsbuildinfo
 .yarn/install-state.gz
-.pnp
-.pnp.js
-
-# ============ VITE (if used) ============
-dist/
-.vite/
-
-# ============ TURBOPACK (if used) ============
-.turbo/
