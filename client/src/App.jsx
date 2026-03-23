@@ -6,7 +6,8 @@ import AnalyticsDashboard from './pages/AnalyticsDashboard';
 import Navbar from './components/Navbar';
 import './App.css';
 
-const API_URL = 'http://localhost:5004/api';
+// ✅ Use env variable instead of hardcoded URL
+const API_URL = import.meta.env.VITE_API_URL;
 
 function App() {
   const [currentPage, setCurrentPage] = useState('landing');
@@ -108,14 +109,30 @@ function App() {
 
       {currentPage === 'generateLog' && (
         <div className="generate-log-page">
-          <Navbar onBackClick={goToLanding} onGenerateLogClick={goToGenerateLog} onAnalyzeClick={goToAnalyzer} onAnalyticsClick={goToAnalytics} currentPage="generateLog" isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+          <Navbar 
+            onBackClick={goToLanding}
+            onGenerateLogClick={goToGenerateLog}
+            onAnalyzeClick={goToAnalyzer}
+            onAnalyticsClick={goToAnalytics}
+            currentPage="generateLog"
+            isDarkMode={isDarkMode}
+            toggleTheme={toggleTheme}
+          />
           <GenerateLogPage onNavigateToAnalyze={goToAnalyzeFromGenerate} />
         </div>
       )}
 
       {currentPage === 'analyzer' && (
         <div className="analyzer-page">
-          <Navbar onBackClick={goToLanding} onGenerateLogClick={goToGenerateLog} onAnalyzeClick={goToAnalyzer} onAnalyticsClick={goToAnalytics} currentPage="analyzer" isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+          <Navbar 
+            onBackClick={goToLanding}
+            onGenerateLogClick={goToGenerateLog}
+            onAnalyzeClick={goToAnalyzer}
+            onAnalyticsClick={goToAnalytics}
+            currentPage="analyzer"
+            isDarkMode={isDarkMode}
+            toggleTheme={toggleTheme}
+          />
           <AnalyzePage 
             logText={logText}
             setLogText={setLogText}
@@ -135,7 +152,15 @@ function App() {
 
       {currentPage === 'analytics' && (
         <div className="analytics-page">
-          <Navbar onBackClick={goToLanding} onGenerateLogClick={goToGenerateLog} onAnalyzeClick={goToAnalyzer} onAnalyticsClick={goToAnalytics} currentPage="analytics" isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+          <Navbar 
+            onBackClick={goToLanding}
+            onGenerateLogClick={goToGenerateLog}
+            onAnalyzeClick={goToAnalyzer}
+            onAnalyticsClick={goToAnalytics}
+            currentPage="analytics"
+            isDarkMode={isDarkMode}
+            toggleTheme={toggleTheme}
+          />
           <AnalyticsDashboard />
         </div>
       )}
