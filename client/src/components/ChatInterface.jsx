@@ -4,7 +4,7 @@ import Message from './Message';
 import MessageInput from './MessageInput';
 import '../styles/ChatInterface.css';
 
-const API_URL = 'http://localhost:5004/api/chat';
+const API_URL = `${import.meta.env.VITE_API_URL}/chat`;
 
 /**
  * ChatInterface component - main chat interface for asking questions about logs

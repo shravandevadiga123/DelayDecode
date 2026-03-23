@@ -5,7 +5,7 @@ import {
 } from 'recharts';
 import '../styles/AnalyticsDashboard.css';
 
-const API_URL = 'http://localhost:5004/api';
+const API_URL = import.meta.env.VITE_API_URL;
 
 function AnalyticsDashboard() {
   const [analytics, setAnalytics] = useState(null);

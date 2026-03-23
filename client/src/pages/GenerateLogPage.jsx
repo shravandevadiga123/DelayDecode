@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/GenerateLogPage.css';
 
-const API_URL = 'http://localhost:5004/api';
+const API_URL = import.meta.env.VITE_API_URL;
 
 const LoadingAnimation = () => {
   const [statusIndex, setStatusIndex] = useState(0);

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ChatInterface from '../components/ChatInterface';
 import '../styles/AnalyzePage.css';
 
-const API_URL = 'http://localhost:5004/api';
+const API_URL = process.env.REACT_APP_API_URL;
 
 /**
  * Converts markdown bold (**text**) to React elements with proper phrase wrapping
