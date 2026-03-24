@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  BarChart, Bar, PieChart, Pie, LineChart, Line,
+  BarChart, Bar, PieChart, Pie,
   XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Cell
 } from 'recharts';
 import '../styles/AnalyticsDashboard.css';
@@ -346,38 +346,6 @@ function transformCauseBreakdown(causeBreakdown) {
   }));
 }
 
-// FIXED: Compute zone breakdown with proper string normalization
-function computeZoneBreakdown(logs) {
-  let metroCount = 0;
-  let nonMetroCount = 0;
-
-  logs.forEach(log => {
-    const zone = (log.zone || "")
-      .toLowerCase()
-      .trim()
-      .replace("-", " ");
-    
-    // Check for non-metro first (contains "non")
-    if (zone.includes("non")) {
-      nonMetroCount++;
-    } else if (zone.includes("metro")) {
-      metroCount++;
-    }
-  });
-
-  return [
-    { name: "Metropolitan", value: metroCount },
-    { name: "Non-Metropolitan", value: nonMetroCount }
-  ];
-}
-
-function transformZoneBreakdown(zoneBreakdown) {
-  return [
-    { name: 'Metropolitan', value: zoneBreakdown.Metropolitan || 0 },
-    { name: 'Non-Metropolitan', value: zoneBreakdown['Non-Metropolitan'] || 0 }
-  ];
-}
-
 function transformHopsDistribution(logs) {
   const hopsMap = {};
   logs.forEach(log => {
@@ -410,6 +378,5 @@ function renderCustomLabel({ cx, cy, midAngle, innerRadius, outerRadius, percent
 }
 
 const COLORS = ['#145DBE', '#3B82F6', '#22C55E', '#FACC15', '#EF4444', '#8B5CF6'];
-const ZONE_COLORS = ['#145DBE', '#FACC15'];
 
 export default AnalyticsDashboard;

@@ -106,7 +106,7 @@ function AnalyzePage({
         throw new Error(errorData.error || 'Failed to send email');
       }
 
-      const data = await response.json();
+      await response.json();
 
       setEmailState(prev => ({
         ...prev,

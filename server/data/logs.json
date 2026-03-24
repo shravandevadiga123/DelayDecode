@@ -1065,5 +1065,39 @@
       "Weekend Operational Pause"
     ],
     "timestamp": "2026-03-16T05:20:16.869Z"
+  },
+  {
+    "logId": "14615",
+    "delay": 267,
+    "hops": 2,
+    "zone": "Non-Metropolitan",
+    "route": "H441 → H349 → H711",
+    "weight": 45,
+    "orderType": "Prepaid",
+    "sla": "Standard",
+    "sunday": false,
+    "holiday": false,
+    "reasons": [
+      "Remote Delivery Zone"
+    ],
+    "timestamp": "2026-03-23T14:05:20.629Z"
+  },
+  {
+    "logId": "2420",
+    "delay": 9720,
+    "hops": 2,
+    "zone": "Non-Metropolitan",
+    "route": "H476 → H700 → H206",
+    "weight": 43,
+    "orderType": "Prepaid",
+    "sla": "Express",
+    "sunday": true,
+    "holiday": true,
+    "reasons": [
+      "Extended Transit Delay",
+      "SLA Breach",
+      "Weekend Operational Pause"
+    ],
+    "timestamp": "2026-03-24T12:35:35.346Z"
   }
 ]

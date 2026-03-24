@@ -19,7 +19,7 @@ const LoadingAnimation = () => {
     }, 600);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [statuses.length]);
 
   return (
     <div className="ai-loading-container">
